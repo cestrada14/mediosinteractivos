@@ -107,6 +107,11 @@ function setup() {
  for(rectangulo = 656; rectangulo <= 850; rectangulo = rectangulo +35) {
    rect(322, rectangulo+1, 80, 19);
  }
+ 
+  //
+ for(rectangulo = 868; rectangulo <= 950; rectangulo = rectangulo +35) {
+   rect(81, rectangulo, 80, 19);
+ }
   
 //Rectangulos cafes 
   
