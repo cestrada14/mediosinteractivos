@@ -1,4 +1,4 @@
-  var x1 = 260;
+   var x1 = 260;
   var x2 = 290;
   var x3 = 300;
   var x4 = 290;
@@ -159,12 +159,12 @@ function draw() {
   
 //Renctangulo con Luz
   
-  if(misHoras >= 0 && misHoras <= 12) {
+  if(misHoras >= 6 && misHoras <= 18) {
   fill(251, 197, 53, 60);
   rect(0, 0, 375, 520);
   }
   
-  if(misHoras >= 13 && misHoras <= 24) {
+  if(misHoras >= 19 && misHoras <= 24 ) {
   push();
   translate(375, 0);
   fill(251, 197, 53, 60);
@@ -172,9 +172,18 @@ function draw() {
   pop();
   }
   
+  if( misHoras >= 0 && misHoras < 6)
+  {
+    push();
+  translate(375, 0);
+  fill(251, 197, 53, 60);
+  rect(0, 0, 375, 520);
+  pop();
+  }
+    
 //Rectangulo con Oscuridad
   
-  if(misHoras >= 0 && misHoras <= 12) {
+  if(misHoras >= 6 && misHoras <= 18) {
   push();
   translate(375, 0);
   fill(0, 0, 0, 90);
@@ -182,7 +191,13 @@ function draw() {
   pop();
   }
   
-  if(misHoras >= 13 && misHoras <= 24) {
+  if(misHoras >= 19 && misHoras <= 24 ) {
+  fill(0, 0, 0, 90);
+  rect(0, 0, 375, 520);
+  }
+  
+  if (misHoras >= 0 && misHoras < 6)
+  {
   fill(0, 0, 0, 90);
   rect(0, 0, 375, 520);
   }
