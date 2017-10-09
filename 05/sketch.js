@@ -172,9 +172,8 @@ function draw() {
   pop();
   }
   
-  if( misHoras >= 0 && misHoras < 6)
-  {
-    push();
+  if( misHoras >= 0 && misHoras < 6) {
+  push();
   translate(375, 0);
   fill(251, 197, 53, 60);
   rect(0, 0, 375, 520);
@@ -196,8 +195,7 @@ function draw() {
   rect(0, 0, 375, 520);
   }
   
-  if (misHoras >= 0 && misHoras < 6)
-  {
+  if (misHoras >= 0 && misHoras < 6) {
   fill(0, 0, 0, 90);
   rect(0, 0, 375, 520);
   }
