@@ -501,4 +501,27 @@ function mouseDragged () {
   this.y = mouseY;
   }
   
-}
+  }
+
+//Lazar peces
+
+function mouseDragged() {
+  
+  if(frameCount % 10 != 0) {
+  return;
+  }
+  
+  var x1 = mouseX;
+  var y1 = mouseY; 
+  
+  var x2 = pmouseX;
+  var y2 = pmouseY;
+  
+  var velx = x1 - x2; 
+  var vely = y1 - y2;
+  
+  losPeces[numPeces] = new Pececito(velx, vely);
+  
+  numPeces++; 
+  
+  }
