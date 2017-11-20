@@ -522,6 +522,6 @@ function mouseDragged() {
   
   losPeces[numPeces] = new Pececito(velx, vely);
   
-  numPeces++; 
+  //numPeces++; 
   
   }
