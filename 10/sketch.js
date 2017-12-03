@@ -141,9 +141,9 @@ function mousePressed() { //pasa muchas veces mientras tenga el mouse presionado
       puntaje = puntaje + 1;
     }
     
-    if(mouseX > 20 && mouseX < 70 && mouseY > 80 && mouseY < windowHeight - 100) {
-    herramienta = 1;
-    }
+    //if(mouseX > 20 && mouseX < 70 && mouseY > 80 && mouseY < windowHeight - 100) {
+    //herramienta = 1;
+    //}
 
     lasBalas[lasBalas.length] = new Balita(mouseX, mouseY);
     //puntaje = puntaje + 1;
@@ -154,12 +154,11 @@ function mousePressed() { //pasa muchas veces mientras tenga el mouse presionado
   }
 }
 
-    if (herramienta == 1) {
-    noStroke();
-    fill(255, 0, 0);
-    ellipse(this.x, this.y, 10, 10);
-      
-    }
+    //if (herramienta == 1) {
+    //noStroke();
+    //fill(255, 0, 0);
+    //ellipse(this.x, this.y, 10, 10);
+    //7}
 
 
 
