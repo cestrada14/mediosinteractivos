@@ -1,7 +1,10 @@
-var herramienta = 0;
-var boton1 = 70;
-var boton2 = 80;
-var boton3 = 100;
+//var herramienta = 0;
+//var boton1 = 70;
+//var boton2 = 80;
+//var boton3 = 100;
+
+//var horizAlign = windowWidth/2;
+//var vertAlign = 50;
 
 var miImagen;
 var miImagen1;
@@ -10,7 +13,8 @@ var laBala;
 var lasBalas = [];
 
 var elVenado;
-var numVenados = 50;
+var numVenados = 70;
+var venadosMuertos;
 var losVenados = [];
 
 var puntaje = 0;
@@ -21,6 +25,9 @@ var estado = 0;
 var INTRO = 1;
 var JUEGO = 2;
 var OUTRO = 3;
+var OUTRO2 = 4;
+var millisecond;
+
 
 function preload() {
 
@@ -29,11 +36,11 @@ function preload() {
 
 }
 
-
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  
 
-  estado = OUTRO; //si se cambia cambia el color 
+  estado = INTRO; //si se cambia cambia el color 
 
   elVenado = new Venadito();
 
@@ -42,11 +49,18 @@ function setup() {
   for (var i = 0; i < numVenados; i = i + 1) {
     losVenados[i] = new Venadito();
   }
+  
+  for (var o = 0; o < venadosMuertos; o = o + 1) {
+    losVenados[i] = losVenados[i].muertos();
+    
+  }
 
 }
 
 function draw() {
 
+  var millisecond = millis();
+  print(millisecond);
   image(miImagen, 0, 0);
 
   noStroke();
@@ -56,15 +70,23 @@ function draw() {
     //background(0, 0, 0);
     fill(255);
     textAlign(CENTER);
-    textSize(25);
+    textSize(100);
     //text("INTRO", width / 2, height / 2);
-    text("Dispara la mayor cantidad de veces hasta terminar con los venados", width / 2, height / 2);
+    text("HUNTEER", width / 2, height / 2.2);
+    textAlign(CENTER);
+    textSize(25);
+    text("Dispara la mayor cantidad de veces hasta que no haya más venados", width / 2, height / 1.8);
 
   } else if (estado == JUEGO) {
+  
+    
+    if(millisecond > 15000 && puntaje<50) {
+      estado = OUTRO2;
+  }
     //background(colorFondo);
     
-    fill(255, 0, 0);
-    ellipse(boton1, windowHeight - boton3, boton2, boton2);
+    //fill(255, 0, 0);
+    //ellipse(boton1, windowHeight - boton3, boton2, boton2);
     
     fill(255);
     textAlign(CENTER);
@@ -77,11 +99,14 @@ function draw() {
 
       for (var a = 0; a < lasBalas.length; a = a + 1) {
         var distanciaCentro = dist(lasBalas[a].x, lasBalas[a].y, losVenados[i].x, losVenados[i].y);
-
+       
+        if(losVenados[i].viva==true)
+        {
         if (distanciaCentro < 30) {
           losVenados[i].morir();
+           puntaje=puntaje+1;
         }
-
+        }
       }
 
     }
@@ -99,21 +124,29 @@ function draw() {
     noStroke();
     fill(255);
     textAlign(LEFT);
-    textSize(10);
-    text("PUNTAJE " + puntaje, 10, 10);
+    textSize(30);
+    text("VENADOS " + puntaje, 10, 30);
 
-    if (puntaje > 10) {
+    if (puntaje == 70) {
       estado = OUTRO;
     }
 
-  } else {
+  } else if (estado == OUTRO) {
     //background(200);
     fill(255);
     textAlign(CENTER);
-    textSize(60);
+    textSize(100);
     text("¡¡¡GANASTE!!!", width / 2, height / 2);
   }
 
+  else if (estado == OUTRO2) {
+    //background(200);
+    fill(255);
+    textAlign(CENTER);
+    textSize(100);
+    text("¡¡¡PERDISTE!!!", width / 2, height / 2);
+  }
+  
 }
 
 //function keyReleased() { // si suelta alguna tecla cambia de estado
@@ -124,8 +157,8 @@ function deviceShaken() {
       estado = JUEGO;
     //}
   } else if (estado == JUEGO) {
-    estado = OUTRO;
-  } else {
+    //estado = OUTRO;
+  } else if (estado == OUTRO) {
     estado = INTRO
   }
 
@@ -190,7 +223,7 @@ function Balita(_x, _y) {
 
     noStroke();
     fill(255, 0, 0);
-    ellipse(this.x, this.y, 10, 10);
+    ellipse(this.x - 40, this.y + 13, 8, 8);
 
   }
 
@@ -219,34 +252,34 @@ function Venadito() {
       noStroke();
       fill(139, 94, 47);
       beginShape();
-      vertex(this.x, this.y);
-      vertex(this.x + 10, this.y + 11);
-      vertex(this.x + 18, this.y + 42);
-      vertex(this.x + 23, this.y + 47);
-      vertex(this.x + 28, this.y + 42);
-      vertex(this.x + 38, this.y + 12);
-      vertex(this.x + 48, this.y);
-      vertex(this.x + 36, this.y + 3);
-      vertex(this.x + 13, this.y + 3);
+      vertex(this.x - 24, this.y - 20);
+      vertex(this.x + 10 - 24, this.y + 11 - 20);
+      vertex(this.x + 18 - 24, this.y + 42 - 20);
+      vertex(this.x + 23 - 24, this.y + 47 - 20);
+      vertex(this.x + 28 - 24, this.y + 42 - 20);
+      vertex(this.x + 38 - 24, this.y + 12 - 20);
+      vertex(this.x + 48 - 24, this.y - 20);
+      vertex(this.x + 36 - 24, this.y + 3 - 20);
+      vertex(this.x + 13 - 24, this.y + 3 - 20);
       endShape(CLOSE);
 
       fill(0, 0, 0);
-      ellipse(this.x + 19, this.y + 18, 2, 2);
-      ellipse(this.x + 28, this.y + 18, 2, 2);
+      ellipse(this.x + 19 - 24, this.y + 18 - 20, 2, 2);
+      ellipse(this.x + 28 - 24, this.y + 18 - 20, 2, 2);
 
-      triangle(this.x + 18, this.y + 42, this.x + 23, this.y + 47, this.x + 28, this.y + 42);
+      triangle(this.x + 18 - 24, this.y + 42 - 20, this.x + 23 - 24, this.y + 47 - 20, this.x + 28 - 24, this.y + 42 - 20);
 
       stroke(0, 0, 0);
       strokeWeight(3);
-      line(this.x + 28, this.y + 4, this.x + 36, this.y - 8);
-      line(this.x + 36, this.y - 8, this.x + 33, this.y - 13);
-      line(this.x + 36, this.y - 8, this.x + 43, this.y - 13);
-      line(this.x + 31, this.y, this.x + 38, this.y - 2);
+      line(this.x + 28  - 24, this.y + 4 - 20, this.x + 36 - 24, this.y - 8 - 20);
+      line(this.x + 36  - 24, this.y - 8 - 20, this.x + 33 - 24, this.y - 13 - 20);
+      line(this.x + 36 - 24, this.y - 8 - 20, this.x + 43 - 24, this.y - 13 - 20);
+      line(this.x + 31 - 24, this.y - 20, this.x + 38 - 24, this.y - 20);
 
-      line(this.x + 19, this.y + 4, this.x + 14, this.y - 8);
-      line(this.x + 14, this.y - 8, this.x + 17, this.y - 13);
-      line(this.x + 14, this.y - 8, this.x + 7, this.y - 13);
-      line(this.x + 18, this.y + 1, this.x + 11, this.y - 3);
+      line(this.x + 19 - 24, this.y + 4 - 20, this.x + 14 - 24, this.y - 8 - 20);
+      line(this.x + 14 - 24, this.y - 8 - 20, this.x + 17 - 24, this.y - 13 - 20);
+      line(this.x + 14 - 24, this.y - 8 - 20, this.x + 7 - 24, this.y - 13 - 20);
+      line(this.x + 18 - 24, this.y + 1 - 20, this.x + 11 - 24, this.y - 3 - 20);
 
     }
 
@@ -280,8 +313,16 @@ function Venadito() {
   this.morir = function() {
 
     this.viva = false;
+   
 
   }
+  
+  this.muertos = function() {
+
+    this.viva = false;
+
+  }
+
 }
 
 function touchMoved() {
