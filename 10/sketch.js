@@ -157,8 +157,8 @@ function draw() {
       
 }
 
-function keyReleased() { // si suelta alguna tecla cambia de estado
-//function deviceShaken() {
+//function keyReleased() { // si suelta alguna tecla cambia de estado
+function deviceShaken() {
 
   if (estado == INTRO) {
     //if (keyCode == ENTER) {
