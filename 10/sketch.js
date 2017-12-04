@@ -124,7 +124,7 @@ function draw() {
     noStroke();
     fill(255);
     textAlign(LEFT);
-    textSize(30);
+    textSize(20);
     text("VENADOS " + puntaje, 10, 30);
 
     if (puntaje == 70) {
@@ -149,8 +149,8 @@ function draw() {
   
 }
 
-//function keyReleased() { // si suelta alguna tecla cambia de estado
-function deviceShaken() {
+function keyReleased() { // si suelta alguna tecla cambia de estado
+//function deviceShaken() {
 
   if (estado == INTRO) {
     //if (keyCode == ENTER) {
