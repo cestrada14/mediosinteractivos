@@ -141,6 +141,8 @@ function draw() {
     textAlign(CENTER);
     textSize(100);
     text("¡¡¡GANASTE!!!", width / 2, height / 2);
+    textSize(25);
+    text("Espera 30 segundos para volver a empezar", width / 2, height / 1.6);
   }
 
   else if (estado == OUTRO2) {
@@ -149,6 +151,8 @@ function draw() {
     textAlign(CENTER);
     textSize(100);
     text("¡¡¡PERDISTE!!!", width / 2, height / 2);
+    textSize(25);
+    text("Espera 30 segundos para volver a empezar", width / 2, height / 1.6);
 
     
     
@@ -157,8 +161,8 @@ function draw() {
       
 }
 
-//function keyReleased() { // si suelta alguna tecla cambia de estado
-function deviceShaken() {
+function keyReleased() { // si suelta alguna tecla cambia de estado
+//function deviceShaken() {
 
   if (estado == INTRO) {
     //if (keyCode == ENTER) {
@@ -189,10 +193,10 @@ function mousePressed() { //pasa muchas veces mientras tenga el mouse presionado
     lasBalas[lasBalas.length] = new Balita(mouseX, mouseY);
     //puntaje = puntaje + 1;
     //estado = OUTRO;
-  } else {
+  } 
     //estado = INTRO
 
-  }
+
 }
 
     //if (herramienta == 1) {
