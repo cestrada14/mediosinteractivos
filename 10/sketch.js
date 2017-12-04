@@ -76,7 +76,11 @@ function draw() {
     textAlign(CENTER);
     textSize(25);
     text("Dispara la mayor cantidad de veces hasta que no haya más venados", width / 2, height / 1.8);
-
+    textAlign(CENTER);
+    textSize(25);
+    text("Agita para empezar", width / 2, height / 1.5);
+    
+    
   } else if (estado == JUEGO) {
   
     
@@ -145,12 +149,16 @@ function draw() {
     textAlign(CENTER);
     textSize(100);
     text("¡¡¡PERDISTE!!!", width / 2, height / 2);
+
+    
+    
   }
   
+      
 }
 
-//function keyReleased() { // si suelta alguna tecla cambia de estado
-function deviceShaken() {
+function keyReleased() { // si suelta alguna tecla cambia de estado
+//function deviceShaken() {
 
   if (estado == INTRO) {
     //if (keyCode == ENTER) {
@@ -159,13 +167,13 @@ function deviceShaken() {
   } else if (estado == JUEGO) {
     //estado = OUTRO;
   } else if (estado == OUTRO) {
-    estado = INTRO
+    //estado = INTRO
   }
 
 }
 
-function mousePressed() { //pasa muchas veces mientras tenga el mouse presionado
-//function doubleClicked() {
+//function mousePressed() { //pasa muchas veces mientras tenga el mouse presionado
+function doubleClicked() {
 
   if (estado == INTRO) {
     //estado = JUEGO;
@@ -330,3 +338,15 @@ function touchMoved() {
   return false;
   
   } 
+
+function touchStarted()
+{
+  if(estado==OUTRO2)
+  {
+    estado=INTRO;
+  }
+else if(estado==OUTRO)
+  {
+    estado=INTRO;
+  }
+}
