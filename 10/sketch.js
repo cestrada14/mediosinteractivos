@@ -339,14 +339,14 @@ function touchMoved() {
   
   } 
 
-function touchStarted()
-{
-  if(estado==OUTRO2)
-  {
-    estado=INTRO;
-  }
-else if(estado==OUTRO)
-  {
-    estado=INTRO;
-  }
-}
+//function touchStarted()
+//{
+  //if(estado==OUTRO2)
+  //{
+    //estado=INTRO;
+  //}
+//else if(estado==OUTRO)
+  //{
+    //estado=INTRO;
+  //}
+//}
