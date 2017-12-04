@@ -172,8 +172,8 @@ function deviceShaken() {
 
 }
 
-//function mousePressed() { //pasa muchas veces mientras tenga el mouse presionado
-function doubleClicked() {
+function mousePressed() { //pasa muchas veces mientras tenga el mouse presionado
+//function doubleClicked() {
 
   if (estado == INTRO) {
     //estado = JUEGO;
